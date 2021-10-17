@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react';
 
 import '../styles/index.scss';
 
-const worker = new Worker(new URL('../wokers/sum.worker.js', import.meta.url));
+const worker = new Worker(new URL('../wokers/sumWorker.js', import.meta.url), {
+  type: 'module',
+});
 
 export default function App() {
   const [sum, setsum] = useState(0);

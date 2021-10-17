@@ -3,13 +3,14 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
+const WorkerPlugin = require('worker-plugin');
 const mode =
   process.env.NODE_ENV === 'production' ? 'production' : 'development';
 console.log('current mode ', mode);
 
 const plugins = [
   new CleanWebpackPlugin(),
+  new WorkerPlugin(),
   new MiniCssExtractPlugin(),
   new HTMLWebpackPlugin({
     template: './src/index.html',
@@ -54,6 +55,11 @@ module.exports = {
         },
       },
     ],
+  },
+  resolve: {
+    alias: {
+      worker: 'worker-plugin/loader?esModule',
+    },
   },
   plugins: plugins,
   resolve: {
