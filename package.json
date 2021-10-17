@@ -1,0 +1,66 @@
+{
+  "name": "react-webpack",
+  "version": "2.0.0",
+  "description": "React boilerplate based on React 17",
+  "main": "index.js",
+  "private": "true",
+  "scripts": {
+    "start": "SERVE=true webpack serve",
+    "build": "NODE_ENV=production webpack",
+    "watch": "webpack --watch",
+    "commit": "git cz",
+    "test": "jest",
+    "coverage": "jest --collect-coverage --watchAll"
+  },
+  "author": "Abhimanyu",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "regenerator-runtime": "^0.13.9"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-react": "^7.14.5",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.0",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "git-cz": "^4.7.6",
+    "html-webpack-plugin": "^5.3.2",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.2.1",
+    "lint-staged": "^11.1.2",
+    "mini-css-extract-plugin": "^2.3.0",
+    "postcss": "^8.3.7",
+    "postcss-loader": "^6.1.1",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^2.4.1",
+    "sass": "^1.42.1",
+    "sass-loader": "^12.1.0",
+    "webpack": "^5.53.0",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.2.1"
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts,tsx}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.js*"
+    ],
+    "coveragePathIgnorePatterns": [
+      "node_modules",
+      "<rootDir>/src/index.js",
+      "fileTransformer.js"
+    ],
+    "coverageDirectory": "<rootDir>/coverage/"
+  }
+}
